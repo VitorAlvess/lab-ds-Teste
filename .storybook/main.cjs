@@ -19,5 +19,9 @@ module.exports = {
     if(configType === 'PRODUCTION'){
       config.base = '/lab-ds-Teste'
     }
+
+    return config
   }
+
+  
 }
