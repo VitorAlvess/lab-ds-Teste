@@ -1,3 +1,6 @@
+const tsconfigPaths = require('vite-tsconfig-paths');
+
+
 module.exports = {
   "stories": [
     "../src/**/*.stories.mdx",
@@ -15,13 +18,13 @@ module.exports = {
   "features": {
     "storyStoreV7": true
   },
-  viteFinal: (config, { configType }) => {
-    if(configType === 'PRODUCTION'){
-      config.base = '/lab-ds-Teste/'
+  async viteFinal(config, { configType }) {
+    config.plugins.push(tsconfigPaths.default());
+
+    if (configType === 'PRODUCTION') {
+      config.base = '/lab-ds-Teste/';
     }
 
-    return config
-  }
-
-  
-}
+    return config;
+  },
+};
